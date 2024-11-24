@@ -94,4 +94,10 @@ class Usuario:
         db.update({'posicao': nova_posicao}, query.id == registro['id'])
 
     return proximo
-    
+  
+  @classmethod
+  def removerUsuario(cls, id: int):
+    db = TinyDB('db.json')
+    query = Query()
+    db.remove(query.id == id)
+    return None

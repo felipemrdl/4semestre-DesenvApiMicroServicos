@@ -32,6 +32,7 @@ async def atualizarFila():
   dados = Usuario.atenderProximo()
   return createResponse(True, "Requisição processada com sucesso.", dados)
 
-# @router.delete('/api/fila/:id', name="Remover Usuário")
-# async def removerUsuario(id: int):
-#   return createResponse(True, "Requisição processada com sucesso.", "Dados")
+@router.delete('/api/fila/:id', name="Remover Usuário")
+async def removerUsuario(id: int):
+  Usuario.removerUsuario(id)
+  return createResponse(True, "Requisição processada com sucesso.", "Usuário removido da fila com sucesso.")
